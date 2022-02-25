@@ -30,7 +30,7 @@ class WelcomeMail extends Mailable
      */
     public function build(Request $data)
     {
-        $address = 'auto-systems@hr22.com';
+        $address = 'hugoresende29@gmail.com';
         $subject = 'Welcome';
         $name = 'Admin';
         
