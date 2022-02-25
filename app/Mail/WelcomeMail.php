@@ -17,10 +17,10 @@ class WelcomeMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
-    }
+    // public function __construct()
+    // {
+    //     //
+    // }
 
     /**
      * Build the message.
