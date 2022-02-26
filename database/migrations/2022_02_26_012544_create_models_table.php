@@ -21,6 +21,10 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->timestamps();
         });
+
+        Schema::table('cars', function (Blueprint $table) {
+            $table->foreign('make')->references('code')->on('makes');
+        });
     }
 
     /**

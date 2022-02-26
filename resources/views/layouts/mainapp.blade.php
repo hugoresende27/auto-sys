@@ -14,7 +14,7 @@
   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 
-    <link rel="stylesheet" href="css/my_styles.css">
+    <link rel="stylesheet" href="{{ URL('css/my_styles.css') }}">
 
     <title>Auto Sys</title>
 </head>
@@ -80,6 +80,14 @@
     <a href="{{ url()->previous() }}"><img src="{{  URL('images/back_arr.png')}}" alt="back" class="back-img"></a>
 
     <a href="/"><img src="{{ URL('images/logo.jpg') }}" alt="logo" class="logo-img"></a>
+
+    @if (session()->has('message'))
+    <div >
+        <p class="message-box">
+            {{ session()->get('message') }}
+        </p>
+    </div>
+   @endif
 
 </div>
 

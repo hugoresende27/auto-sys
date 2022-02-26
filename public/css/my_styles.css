@@ -164,6 +164,15 @@ body {
     margin-top: 0px;
 }
 
+.message-box{
+    background-color: darkblue;
+    width: fit-content;
+    text-align: center;
+    margin-left: 1%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
 
 /*///////////////MEDIA QUERYS////////////////////////////////////////////////////////////////////*/
 @media(max-width: 480px)        /*para ecras mais pequenos*/

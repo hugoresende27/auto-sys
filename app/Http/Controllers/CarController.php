@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
+use App\Models\Make;
+use App\Models\Modelo;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
@@ -24,7 +27,10 @@ class CarController extends Controller
     public function create()
     {
         //
-        return view ('cars.create');
+        $makes = Make::all()->pluck('code','title');
+        $models = Modelo::all()->pluck('code','title');
+        // dd(get_defined_vars());
+        return view ('cars.create',compact('makes','models'));
     }
 
     /**
@@ -36,6 +42,14 @@ class CarController extends Controller
     public function store(Request $request)
     {
         //
+
+        $new_car = new Car;
+
+        $new_car->make = $request->input('make');
+
+        $new_car->save();
+
+        return redirect ('/welcome')->with('message','Car added');
     }
 
     /**

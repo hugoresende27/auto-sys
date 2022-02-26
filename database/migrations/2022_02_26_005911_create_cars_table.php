@@ -17,14 +17,14 @@ return new class extends Migration
 
             $table->id();
             $table->string('make');
-            $table->string('model');
-            $table->string('plate');
-            $table->string('color');
-            $table->integer('kms');
-            $table->year('year');
-            $table->decimal('value',9,3);   
-            $table->integer('last_revision');
-            $table->integer('next_revision');
+            $table->string('model')->nullable();
+            $table->string('plate')->nullable();
+            $table->string('color')->nullable();
+            $table->integer('kms')->nullable();
+            $table->year('year')->nullable();
+            $table->decimal('value',9,3)->nullable();   
+            $table->integer('last_revision')->nullable();
+            $table->integer('next_revision')->nullable();
             $table->string('driver')->nullable();
             $table->string('details')->nullable();
             $table->timestamps();

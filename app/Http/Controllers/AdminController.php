@@ -6,10 +6,18 @@ use File;
 use App\Models\Make;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
     //
+    
+    public function __construct()
+    {
+  
+        $this->middleware('auth');
+        //$this->middleware(Auth::user()->role == 3) ;
+    }
 
     public function allusers()
     {
@@ -19,9 +27,13 @@ class AdminController extends Controller
 
     public function allmakes()
     {
+        
+        
         $makes = Make::orderBy('code')->paginate(10);
         return view('admin.allmakes', compact('makes'));
     }
+
+ 
 
     public function teste()
     {
