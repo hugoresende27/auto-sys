@@ -27,6 +27,7 @@ require __DIR__.'/auth.php';
 
 
 Route::get('allusers', [AdminController::class, 'allusers']);
+Route::get('allmakes', [AdminController::class, 'allmakes']);
 
 Route::get('teste', [AdminController::class, 'teste']);
 

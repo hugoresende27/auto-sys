@@ -6,8 +6,8 @@
 /*/////////////////// MAINS ////////////////////////////////////////////////////*/
 
 body {
-    overflow-y: auto; /* Hide vertical scrollbar */
-    overflow-x: auto; /* Hide horizontal scrollbar */
+    /*overflow-y: auto; /* Hide vertical scrollbar */
+    /*overflow-x: auto; /* Hide horizontal scrollbar */
     background-color: #000;
     color:#fff;
    
@@ -36,10 +36,11 @@ body {
 
 .welcome-li{
     background-color: grey;
-    padding: 50px;
+    padding: 30px;
     font-size: 1.2rem;
     margin: 10px;
     cursor: pointer;
+    color: #fff;
 }
 .welcome-li:hover{
     background-color: darkblue;   
@@ -48,6 +49,32 @@ body {
 .welcome-main ul li{
     display: inline;
 }
+
+.all-makes{
+    background-color: grey;
+    /* display: flex; */
+    max-width: 100%;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    
+}
+.all-makes li{ 
+    margin: 5px;
+    text-align: left;
+      padding: 5px;
+}
+.all-makes li:hover{ 
+    background-color: #000;
+    border-radius: 5px;
+    transform: scale(1.1);
+  
+}
+.all-makes a{ 
+    color: #fff;
+}
+
+
 
 
 
@@ -80,6 +107,15 @@ body {
     position: absolute;
     left: 50%;
     top:1%;
+    transform: translate(-50%,-1%);
+}
+.back-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    left: 40%;
+    top:4%;
     transform: translate(-50%,-1%);
 }
 
@@ -124,7 +160,52 @@ body {
     color: #fff;
 }
 
+.pre-nex{
+    margin-top: 0px;
+}
 
+
+/*///////////////MEDIA QUERYS////////////////////////////////////////////////////////////////////*/
+@media(max-width: 480px)        /*para ecras mais pequenos*/
+{
+
+  
+    .logo-img{
+        width: 100px;
+        height: 75px;
+        border-radius: 50%;
+        position: absolute;
+        left: 80%;
+        top:2%;
+        transform: translate(-50%,-1%);
+    }
+    .back-img{
+       
+        left: 56%;
+    
+    }
+
+}
+
+@media (max-width : 600px)
+{
+    .logo-img{
+        width: 100px;
+        height: 75px;
+        border-radius: 50%;
+        position: absolute;
+        left: 80%;
+        top:2%;
+        transform: translate(-50%,-1%);
+    }
+
+    .back-img{
+       
+        left: 56%;
+    
+    }
+
+}
 
 
 

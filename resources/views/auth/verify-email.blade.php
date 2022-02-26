@@ -1,7 +1,7 @@
 @extends('layouts.mainapp')
 
 @section('content')
-
+<div class="main-content">
             <form method="POST" action="{{ route('verification.send') }}">
                 @csrf
 
@@ -19,6 +19,6 @@
                     {{ __('Log Out') }}
                 </button>
             </form>
-        </div>
+</div>
 
 @endsection

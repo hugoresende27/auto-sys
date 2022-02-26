@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use File;
+use App\Models\Make;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User;
-use File;
 
 class AdminController extends Controller
 {
@@ -14,6 +15,12 @@ class AdminController extends Controller
     {
         $users = User::all();
         return view('admin.allusers', compact('users'));
+    }
+
+    public function allmakes()
+    {
+        $makes = Make::orderBy('code')->paginate(10);
+        return view('admin.allmakes', compact('makes'));
     }
 
     public function teste()

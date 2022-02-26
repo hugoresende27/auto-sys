@@ -1,7 +1,7 @@
 @extends('layouts.mainapp')
 
 @section('content')
-
+<div class="main-content">
         <form method="POST" action="{{ route('password.update') }}">
             @csrf
 
@@ -37,5 +37,5 @@
                 </x-button>
             </div>
         </form>
-
+</div>
 @endsection
