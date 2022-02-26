@@ -2,7 +2,7 @@
 
 @section('content')
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}"class="my-form">
             @csrf
 
             <!-- Name -->
@@ -43,15 +43,17 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-                
-                <x-hero-btn class="ml-3">
-                    {{ __('Back') }}
-                </x-hero-btn>
+            </div>   
+            <x-hero-btn >
+                {{ __('Back') }}
+            </x-hero-btn>
 
-            </div>
+            <x-button >
+                {{ __('Register') }}
+            </x-button>
+
+
+            
         </form>
 
 @endsection

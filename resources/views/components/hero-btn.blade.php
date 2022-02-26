@@ -1,3 +1,5 @@
-<div class="hero-btn">
-   <a href="/"> {{ $slot }} </a>
-</div>
+<a href="/">
+   <div class="hero-btn">
+      {{ $slot }} 
+   </div>
+</a>

@@ -3,7 +3,7 @@
 @section('content')
 
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login') }}" class="my-form">
             @csrf
 
             <!-- Email Address -->
@@ -37,17 +37,22 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
-
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
-
-                <x-hero-btn class="ml-3">
-                    {{ __('Back') }}
-                </x-hero-btn>
-
-
             </div>
+
+                      
+                
+            <x-hero-btn >
+                {{ __('Back') }}
+            </x-hero-btn>
+
+            <x-button >
+                {{ __('Log in') }}
+            </x-button>
+
+            
+
+
+            
         </form>
 
 

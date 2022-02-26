@@ -2,7 +2,7 @@
 
 @section('content')
 
-        <form method="POST" action="{{ route('password.email') }}">
+        <form method="POST" action="{{ route('password.email') }}"class="my-form">
             @csrf
 
             <!-- Email Address -->
@@ -13,14 +13,17 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
+
+                <x-hero-btn >
+                    {{ __('Back') }}
+                </x-hero-btn>
+
+                
                 <x-button>
                     {{ __('Email Password Reset Link') }}
                 </x-button>
 
-                <x-hero-btn class="ml-3">
-                    {{ __('Back') }}
-                </x-hero-btn>
-
+               
             </div>
         </form>
 

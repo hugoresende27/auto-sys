@@ -18,9 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('home');
-})->middleware(['auth'])->name('home');
+Route::get('/welcome', function () {
+    return view('welcome');
+})->middleware(['auth'])->name('welcome');
 
 require __DIR__.'/auth.php';
 
