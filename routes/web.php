@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\AdminController;
 
 /*
@@ -26,3 +27,7 @@ require __DIR__.'/auth.php';
 
 
 Route::get('allusers', [AdminController::class, 'allusers']);
+
+Route::get('teste', [AdminController::class, 'teste']);
+
+Route::get('addcar', [CarController::class, 'create']);

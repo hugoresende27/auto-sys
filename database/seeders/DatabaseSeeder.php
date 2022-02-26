@@ -30,5 +30,8 @@ class DatabaseSeeder extends Seeder
             'created_at'=> now()
         ]);
 
+        $this->call(MakeSeeder::class);
+        $this->call(ModelosSeeder::class);
+
     }
 }
