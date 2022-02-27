@@ -27,9 +27,11 @@ class CarController extends Controller
     public function create()
     {
         //
-        $makes = Make::all()->pluck('code','title');
-        $models = Modelo::all()->pluck('code','title');
-        // dd(get_defined_vars());
+        $makes = Make::all();
+        $models = Modelo::all();
+
+        // $teste = Modelo::where('make_id','code')->get();
+       
         return view ('cars.create',compact('makes','models'));
     }
 
