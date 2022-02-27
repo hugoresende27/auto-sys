@@ -9,37 +9,81 @@
   <div class="form-group display-6 ">
     
 
+  {{ Form::label('make','Manufacturer',['class'=>' m-3']) }}<br>
 
 
 
-      {{ Form::label('make','Manufacturer',['class'=>' m-3']) }}<br>
-      {{-- {{  Form::select('make', $makes,null); }}<br> --}}
+ <!-- Department Dropdown -->
+ <select id='sel_mak' name='sel_mak'>
+  <option value='0'>-- Select Maker --</option>
 
-      <select name="make" id="make">
-        @foreach ($makes as $mak)
-       
-          <option value="{{ $mak->code }}">{{ $mak->title }}</option>
-          @if (value('make') == "ACURA")
-              <select name="model" id="model">
-                @foreach ($models as $mod)
-                  <option value="">{{ $mod->title }}</option>
-                @endforeach
-               
-              </select>
-          @endif
-        @endforeach
-      </select>
+  <!-- Read Departments -->
+  @foreach($makes['data'] as $make)
+    <option value='{{ $make->code }}'>{{ $make->title }}</option>
+  @endforeach
 
-   
-    
+</select>
+<br>
 
+{{ Form::label('models','Models',['class'=>' m-3']) }}<br>
+<!-- Department Employees Dropdown -->
+ <select id='sel_mod' name='sel_mod'>
+ <option value='0'>-- Select Model --</option>
+</select>
 
-      {{ Form::label('models','Models',['class'=>' m-3']) }}<br>
+<!-- Script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type='text/javascript'>
+$(document).ready(function(){
+
+  // Department Change
+  $('#sel_mak').change(function(){
+
+     // Department id
+     var code = $(this).val();
+     
+     // Empty the dropdown
+     $('#sel_mod').find('option').not(':first').remove();
+
+     // AJAX request 
+     $.ajax({
+      
+       url: 'addcar/getModelos/'+code,
+       type: 'get',
+       dataType: 'json',
+       success: function(response){
+        
+         var len = 0;
+         if(response['data'] != null){
+            len = response['data'].length;
+         }
+
+         if(len > 0){
+            // Read data and create <option >
+            for(var i=0; i<len; i++){
+
+               var id = response['data'][i].make_id;
+               var name = response['data'][i].title;
+
+               var option = "<option value='"+name+"'>"+name+"</option>";
+              //  console.log(name);
+               $("#sel_mod").append(option); 
+            }
+         }
+         
+       }
+     });
+  });
+});
+</script>
+
+      {{-- {{ Form::label('models','Models',['class'=>' m-3']) }}<br> --}}
       {{-- {{  Form::select('model', $models,null); }}<br> --}}
  
-{{ $x = old('make') }}
 
- {{  dd(get_defined_vars()); }}
+
+ {{-- {{  dd(get_defined_vars()); }} --}}
+ 
 
       
   

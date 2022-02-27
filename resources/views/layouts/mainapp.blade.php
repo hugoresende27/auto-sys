@@ -86,7 +86,7 @@
     <a href="/"><img src="{{ asset('images/logo.jpg') }}" alt="logo" class="logo-img"></a>
 
     @if (session()->has('message'))
-    <div >
+    <div id='hideMe'  >
         <p class="message-box">
             {{ session()->get('message') }}
         </p>

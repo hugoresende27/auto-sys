@@ -17,13 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string('make_id');
             $table->foreign('make_id')->references('code')->on('makes');
-            $table->string('code')->nullable();
-            $table->string('title')->nullable();
+            $table->string('code');
+            $table->string('title');
             $table->timestamps();
         });
 
         Schema::table('cars', function (Blueprint $table) {
             $table->foreign('make')->references('code')->on('makes');
+            // $table->foreign('model')->references('id')->on('modelos');
         });
     }
 

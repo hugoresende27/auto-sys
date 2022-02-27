@@ -19,4 +19,7 @@ class MakeController extends Controller
         // dd(get_defined_vars());
         return view ('makes.index', compact('make','mds'));
     }
+
+
+
 }

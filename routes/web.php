@@ -34,7 +34,7 @@ require __DIR__.'/auth.php';
 
 Route::get('addcar', [CarController::class, 'create']);
 Route::post('addcar/create', [CarController::class, 'store'])->name('save_car');
-
+Route::get('/addcar/getModelos/{code}', [CarController::class, 'getModelos']);
 
 
 Route::middleware([CheckRole::class,'checkrole'])->group(function()
@@ -47,3 +47,6 @@ Route::middleware([CheckRole::class,'checkrole'])->group(function()
             Route::get('makes/{make}/show', [MakeController::class, 'show']);
                     
         });
+
+
+// Route::get('/', [MakeController::class, 'index']);

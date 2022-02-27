@@ -26,14 +26,29 @@ class CarController extends Controller
      */
     public function create()
     {
-        //
-        $makes = Make::all();
-        $models = Modelo::all();
-
-        // $teste = Modelo::where('make_id','code')->get();
        
-        return view ('cars.create',compact('makes','models'));
+     
+         $makes['data'] = Make::orderby("code","asc")
+         ->select('code','title')
+         ->get();
+
+        // Load index view
+        return view('cars.create')->with("makes",$makes);
     }
+
+       // Fetch records
+       public function getModelos($make_id=0){
+   
+        // Fetch Employees by Departmentid
+        $modelosData['data'] = Modelo::orderby("make_id","asc")
+           ->select('make_id','title')
+           ->where('make_id',$make_id)
+           ->get();
+   
+         
+        return response()->json($modelosData);
+   
+      }
 
     /**
      * Store a newly created resource in storage.
@@ -47,10 +62,11 @@ class CarController extends Controller
 
         $new_car = new Car;
 
-        $new_car->make = $request->input('make');
+        $new_car->make = $request->input('sel_mak');
+        $new_car->model = $request->input('sel_mod');
 
         $new_car->save();
-
+        // dd(get_defined_vars());
         return redirect ('/welcome')->with('message','Car added');
     }
 

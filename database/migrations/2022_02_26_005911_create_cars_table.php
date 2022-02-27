@@ -17,7 +17,7 @@ return new class extends Migration
 
             $table->id();
             $table->string('make');
-            $table->string('model')->nullable();
+            $table->string('model');
             $table->string('plate')->nullable();
             $table->string('color')->nullable();
             $table->integer('kms')->nullable();
