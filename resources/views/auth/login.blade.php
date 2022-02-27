@@ -46,7 +46,7 @@
             </x-hero-btn>
 
             <x-button >
-                {{ __('Log in') }}
+                {{ __('Enter') }}
             </x-button>
 
             

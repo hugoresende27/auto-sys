@@ -34,7 +34,7 @@ Route::post('addcar/create', [CarController::class, 'store'])->name('save_car');
 
 
 
-Route::middleware([CheckRole::class])->group(function()
+Route::middleware([App\Http\Middleware\CheckRole::class])->group(function()
         {
 
             Route::get('allusers', [AdminController::class, 'allusers']);
