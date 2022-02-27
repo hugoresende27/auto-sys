@@ -6,9 +6,17 @@ use App\Models\Car;
 use App\Models\Make;
 use App\Models\Modelo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CarController extends Controller
 {
+
+    public function __construct()
+    {
+  
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -64,7 +72,14 @@ class CarController extends Controller
 
         $new_car->make = $request->input('sel_mak');
         $new_car->model = $request->input('sel_mod');
+        $new_car->plate = $request->input('plate');
+        $new_car->color = $request->input('color');
+        $new_car->kms = $request->input('kms');
+        $new_car->year = $request->input('year');
+        $new_car->last_revision = $request->input('last_rev');
+        $new_car->driver  = Auth::user()->name;
 
+        $new_car->user_id = Auth::user()->id;
         $new_car->save();
         // dd(get_defined_vars());
         return redirect ('/welcome')->with('message','Car added');

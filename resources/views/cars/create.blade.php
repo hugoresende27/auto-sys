@@ -2,33 +2,33 @@
 
 @section('content')
 <div class="main-content">
-  <h1>Add a car</h1>
+  {{-- <h1 class="my-titles-2">Add a car</h1> --}}
 
   {!! Form::open(['route' => 'save_car', 'method'=> 'POST']) !!}
 
-  <div class="form-group display-6 ">
+  <div class="form-group">
     
 
-  {{ Form::label('make','Manufacturer',['class'=>' m-3']) }}<br>
+  {{-- {{ Form::label('make','Manufacturer',['class'=>'']) }}<br> --}}
 
 
 
  <!-- Department Dropdown -->
- <select id='sel_mak' name='sel_mak'>
+ <select id='sel_mak' name='sel_mak' class="m-3">
   <option value='0'>-- Select Maker --</option>
 
   <!-- Read Departments -->
   @foreach($makes['data'] as $make)
-    <option value='{{ $make->code }}'>{{ $make->title }}</option>
+    <option value='{{ $make->code }}' >{{ $make->title }}</option>
   @endforeach
 
 </select>
 <br>
 
-{{ Form::label('models','Models',['class'=>' m-3']) }}<br>
+{{-- {{ Form::label('models','Models',['class'=>'']) }}<br> --}}
 <!-- Department Employees Dropdown -->
- <select id='sel_mod' name='sel_mod'>
- <option value='0'>-- Select Model --</option>
+ <select id='sel_mod' name='sel_mod' required>
+ <option value=''>-- Select Model --</option>
 </select>
 
 <!-- Script -->
@@ -77,13 +77,30 @@ $(document).ready(function(){
 });
 </script>
 
-      {{-- {{ Form::label('models','Models',['class'=>' m-3']) }}<br> --}}
-      {{-- {{  Form::select('model', $models,null); }}<br> --}}
- 
+<br>
 
+{{-- {{ Form::label('Plate','Plate',['class'=>'']) }} --}}
+{{ Form::text('plate','', ['class'=>'form-control text-center m-3','placeholder'=>'Plate','title'=>'##-##-##', 'pattern'=>"(^[a-zA-Z0-9]{2}-[a-zA-Z0-9]{2}-[a-zA-Z0-9]{2})",'required'=>'required']) }}
 
- {{-- {{  dd(get_defined_vars()); }} --}}
+<div>
+  <label for="color">Color</label>
+  <input type="color" id="color" name="color"
+         value="#e66465"
+         class="m-3">
  
+</div>
+
+{{ Form::label('year','Year') }}
+{{ Form::number('year','', ['class'=>'form-control text-center m-3 mine-input','placeholder'=>1950,'min'=>1950, 'max'=>2025, 'step'=>1]) }}
+
+{{ Form::label('kms','Kms') }}
+{{ Form::number('kms','', ['class'=>'form-control text-center m-3','placeholder'=>0,'min'=>0, 'step'=>10000,'required'=>'required']) }}
+
+{{ Form::label('last_rev','Last revision') }}
+{{ Form::number('last_rev','', ['class'=>'form-control text-center m-3','placeholder'=>0,'min'=>0, 'step'=>5000,'required'=>'required']) }}
+
+{{ Form::label('details','Details') }}
+{{ Form::textarea('details','', ['class'=>'form-control  m-3','placeholder'=>'Details here']) }}
 
       
   

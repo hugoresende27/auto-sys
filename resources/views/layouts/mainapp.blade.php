@@ -39,13 +39,19 @@
                 @if (Auth::user()->role == 3)
                     <li >
 
-                        <a href="allusers">All Users</a>
+                        <a href="/../allusers">All Users</a>
 
                     </li>
 
                     <li >
 
-                        <a href="allmakes">All Manufacturers</a>
+                        <a href="/../allmakes">All Manufacturers</a>
+
+                    </li>
+
+                    <li >
+
+                        <a href="/../allcars">All Cars</a>
 
                     </li>
                 @endif

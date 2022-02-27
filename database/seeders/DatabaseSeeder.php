@@ -33,5 +33,7 @@ class DatabaseSeeder extends Seeder
         $this->call(MakeSeeder::class);
         $this->call(ModelosSeeder::class);
 
+        // \App\Models\Car::factory(100)->create();
+
     }
 }

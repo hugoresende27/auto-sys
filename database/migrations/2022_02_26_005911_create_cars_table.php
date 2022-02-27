@@ -16,6 +16,10 @@ return new class extends Migration
         Schema::create('cars', function (Blueprint $table) {
 
             $table->id();
+            
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->string('make');
             $table->string('model');
             $table->string('plate')->nullable();
@@ -27,6 +31,7 @@ return new class extends Migration
             $table->integer('next_revision')->nullable();
             $table->string('driver')->nullable();
             $table->string('details')->nullable();
+
             $table->timestamps();
             
         });

@@ -11,7 +11,7 @@
                 <div class="welcome-main">
                     <ul>
                         <a href="addcar"><li class="welcome-li">Add Car</li></a>
-                        <li class="welcome-li">My Autos</li>
+                        <a href="myautos"> <li class="welcome-li">My Autos</li></a>
                     </ul>
                 </div>
 

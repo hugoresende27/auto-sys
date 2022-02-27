@@ -6,8 +6,8 @@
   
     <p class="my-titles-2">List of all Users</p>
     
-    
-        <table class="table table-striped">
+    <div class="table-responsive">
+        <table class="  table table-striped ">
             <thead>
                 <tr>
                 <th><abbr title="Name of the user">Name</abbr></th>
@@ -29,6 +29,7 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
 
 </div>
 </div>

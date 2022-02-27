@@ -3,11 +3,12 @@
 namespace App\Http\Middleware;
 
 
+use App\Http\Middleware\CheckRole;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\MakeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-use App\Http\Middleware\CheckRole;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,14 +37,17 @@ Route::get('addcar', [CarController::class, 'create']);
 Route::post('addcar/create', [CarController::class, 'store'])->name('save_car');
 Route::get('/addcar/getModelos/{code}', [CarController::class, 'getModelos']);
 
+Route::get('myautos', [UserController::class, 'myAutos']);
 
 Route::middleware([CheckRole::class,'checkrole'])->group(function()
 // Route::middleware('CheckRole@handle')->group(function()
         {
 
             Route::get('allusers', [AdminController::class, 'allusers']);
-            Route::get('allmakes', [AdminController::class, 'allmakes']);
 
+            Route::get('allcars', [AdminController::class, 'allcars']);
+
+            Route::get('allmakes', [AdminController::class, 'allmakes']);
             Route::get('makes/{make}/show', [MakeController::class, 'show']);
                     
         });

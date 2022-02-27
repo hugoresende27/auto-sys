@@ -23,8 +23,8 @@ return new class extends Migration
         });
 
         Schema::table('cars', function (Blueprint $table) {
-            $table->foreign('make')->references('code')->on('makes');
-            // $table->foreign('model')->references('id')->on('modelos');
+            $table->foreign('make')->references('make_id')->on('modelos');
+            // $table->foreign('model')->references('code')->on('modelos');
         });
     }
 

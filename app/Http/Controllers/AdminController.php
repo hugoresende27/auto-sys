@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use File;
+use App\Models\Car;
 use App\Models\Make;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User;
@@ -31,6 +32,14 @@ class AdminController extends Controller
         
         $makes = Make::orderBy('code')->paginate(10);
         return view('admin.allmakes', compact('makes'));
+    }
+
+    public function allcars()
+    {
+        
+        
+        $cars = Car::orderBy('make')->paginate(10);
+        return view('admin.allcars', compact('cars'));
     }
 
  
