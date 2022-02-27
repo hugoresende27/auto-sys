@@ -1,8 +1,8 @@
 <?php
 
 namespace app\Http;
+use app\Http\Middleware\CheckRole;
 
-use App\Http\Middleware\CheckRole;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
