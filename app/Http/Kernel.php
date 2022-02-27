@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http;
+namespace app\Http;
 
 use App\Http\Middleware\CheckRole;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;

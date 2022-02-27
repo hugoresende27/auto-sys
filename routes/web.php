@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\MakeController;
 use App\Http\Controllers\AdminController;
-use App\Http\Middleware\CheckRole;
+use app\Http\Middleware\CheckRole;
 
 /*
 |--------------------------------------------------------------------------
