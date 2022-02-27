@@ -37,7 +37,7 @@ Route::post('addcar/create', [CarController::class, 'store'])->name('save_car');
 
 
 
-Route::middleware([CheckRole::class])->group(function()
+Route::middleware([CheckRole::class,'checkrole'])->group(function()
 // Route::middleware('CheckRole@handle')->group(function()
         {
 
