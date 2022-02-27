@@ -77,7 +77,7 @@
 
    
 
-    <a href="{{ url()->previous() }}"><img src="{{  asset('images/logo.jpg')}}" alt="back" class="back-img"></a>
+    <a href="{{ url()->previous() }}"><img src="https://cdn.pixabay.com/photo/2016/09/05/10/50/app-1646213_960_720.png" alt="back" class="back-img"></a>
 
     <a href="/"><img src="{{ asset('images/logo.jpg') }}" alt="logo" class="logo-img"></a>
 
