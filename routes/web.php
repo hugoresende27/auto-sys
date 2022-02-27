@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Middleware;
+// namespace App\Http\Middleware;
 
-use App\Http\Middleware\CheckRole;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\MakeController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Middleware\CheckRole;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +37,7 @@ Route::post('addcar/create', [CarController::class, 'store'])->name('save_car');
 
 
 
-Route::middleware(CheckRole::class)->group(function()
+Route::middleware(App\Http\Middleware\CheckRole::class)->group(function()
         {
 
             Route::get('allusers', [AdminController::class, 'allusers']);
