@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('modelos', function (Blueprint $table) {
             $table->id();
-            $table->string('make_id');
+            $table->string('make_id')->unique();
             $table->foreign('make_id')->references('code')->on('makes');
             $table->string('code');
             $table->string('title');
