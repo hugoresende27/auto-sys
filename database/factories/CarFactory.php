@@ -18,11 +18,21 @@ class CarFactory extends Factory
      */
     public function definition()
     {
+
+        //  $x = rand (1,5062);
+        // $make_model = Modelo::all()->random()->first();
+        // $modelo = $make_model->title;
+        // $manu = $make_model->make_id;
+
         return [
             //
-            'make'=> $this->faker->randomElement(Modelo::all())['make_id'],
-            'model'=> $this->faker->randomElement(Modelo::all())['title'],
-             'plate'=> '11-AA-11',
+            
+            
+            'user_id'=>2,
+            'make'=> $this->faker->randomElement($x= Modelo::all())['make_id'],
+            // 'model'=> $this->faker->randomElement(Modelo::all())['title'],
+                     
+             'plate'=> rand(0,99).strtoupper($this->faker-> lexify('??')).rand(0,99),
              'color'=> '#ffffff',
             'kms'=>rand(10000,25999),
             'year'=>rand(1980,2020),

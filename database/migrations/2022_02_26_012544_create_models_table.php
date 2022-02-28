@@ -23,7 +23,7 @@ return new class extends Migration
         // });
 
         Schema::create('modelos', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('make_id')->nullable();
             $table->foreign('make_id')->references('make')->on('manus')->onDelete('set null');
             $table->string('title');
@@ -32,7 +32,7 @@ return new class extends Migration
 
         Schema::table('cars', function (Blueprint $table) {
             $table->foreign('make')->references('make')->on('manus')->onDelete('set null');
-            // $table->foreign('model')->references('code')->on('modelos');
+            $table->foreign('model_id')->references('id')->on('modelos')->onDelete('set null');
         });
     }
 

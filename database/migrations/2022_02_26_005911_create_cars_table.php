@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
 
             $table->string('make')->nullable();
+            $table->unsignedBigInteger('model_id')->nullable();
             $table->string('model')->nullable();
 
             $table->string('plate')->nullable();

@@ -14,7 +14,11 @@ body {
   }
 
 .main-content{
-    min-width: 95vw;
+    /* min-width: 95vw; */
+    /* position: absolute; */
+    
+    margin-left: 50%;
+    transform: translateX(-50%);
     min-height: 90vh;
     text-align: center;
     align-content: center;
@@ -23,6 +27,7 @@ body {
     align-items: center;    /*alinha horizontalmente*/
     justify-content: center;/*alinha tudo verticalmente com uso de height:100vh*/
     background-color: #000;
+    max-width: 400px;
     
     
 }
@@ -138,6 +143,14 @@ body {
     border-radius: 5px;
     text-transform: uppercase;
 }
+.card-info{
+    background-color: rgb(75, 67, 67);
+    width: fit-content;
+    color: #fff;
+    padding: 6px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
 
 
 /*/////////////////// TOP BARS AND TITLES ////////////////////////////////////////////////////*/
@@ -156,7 +169,8 @@ body {
 .my-titles-2{
     color: #fff;
     position: absolute;
-    top: 20%;
+    top: 3%;
+   
     font-size: 2.5rem;
     font-family: 'Bebas Neue', cursive;
 }
@@ -184,10 +198,23 @@ body {
     padding: 20px;
   
 }
-
+.side-box{
+    margin-top: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 
 /*/////////////////// BUTTONS ////////////////////////////////////////////////////*/
-
+.color-box{
+    width: 20px;
+    height: 20px; 
+    margin:auto;
+    display: inline-block; 
+    border: 1px solid gray; 
+    vertical-align: middle; 
+    border-radius: 2px;
+}
 .hero-btn{
     background-color: #fff;
     width: fit-content;
@@ -197,7 +224,12 @@ body {
     margin: 10px;
     display: inline;
     border: 2px #000 solid;
+    min-width: 100px;
 
+}
+.hero-btn:hover{
+    background-color: darkblue;
+    color: #fff;
 }
 
 .welcome-btn{

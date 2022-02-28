@@ -33,10 +33,17 @@ Route::get('/welcome', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/search/', [AdminController::class ,'search'])->name('search');
+Route::get('/teste/', [AdminController::class ,'teste'])->name('teste');
 
 Route::get('addcar', [CarController::class, 'create']);
 
+
+Route::get('showcar/{car}/edit',  [CarController::class, 'edit']);
+Route::put('showcar/{car}',  [CarController::class, 'update'])->name('update_car');
+Route::delete('showcar/{id}', [CarController::class, 'destroy']);
+
 Route::get('showcar/{car}/show', [CarController::class, 'show']);
+// Route::get('showcar/{car}/show/edit', [CarController::class, 'show']);
 
 Route::post('addcar/create', [CarController::class, 'store'])->name('save_car');
 Route::get('/addcar/getModelos/{code}', [CarController::class, 'getModelos']);
@@ -44,7 +51,7 @@ Route::get('/addcar/getModelos/{code}', [CarController::class, 'getModelos']);
 Route::get('myautos', [UserController::class, 'myAutos']);
 
 Route::middleware([CheckRole::class,'checkrole'])->group(function()
-// Route::middleware('CheckRole@handle')->group(function()
+
         {
 
             Route::get('allusers', [AdminController::class, 'allusers']);
@@ -58,4 +65,4 @@ Route::middleware([CheckRole::class,'checkrole'])->group(function()
         });
 
 
-// Route::get('/', [MakeController::class, 'index']);
+

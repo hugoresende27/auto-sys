@@ -38,7 +38,11 @@ class DatabaseSeeder extends Seeder
                         ManuSeeder::class,
                         ModelosSeeder::class
                     ]);
-        // \App\Models\Car::factory(100)->create();
+
+
+        \App\Models\Car::factory(10)->create();
+
+      
 
     }
 }

@@ -10,7 +10,7 @@
 
                 <div class="welcome-main">
                     <ul>
-                        <a href="addcar"><li class="welcome-li">Add Car</li></a>
+                        <a href="addcar"><li class="welcome-li">Add Auto</li></a>
                         <a href="myautos"> <li class="welcome-li">My Autos</li></a>
                     </ul>
                 </div>

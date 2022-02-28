@@ -49,30 +49,20 @@ class AdminController extends Controller
 
     public function teste()
     {
-        $json = File::get(base_path("database/data/makes.json"));
-        $cars = json_decode($json);
-  
-        // foreach ($cars as  $car) {
-            
-            foreach($cars as $key => $model){
-           
-                $car = $model->value;
-                foreach ($model->models as $k => $m){
-                    $mod = $m->value;
-                    $mod2 = $m->title;
-                }
-               
-             
+        $x = rand (1,5062);
 
-            
-            }
-           
-        
+        // $make_model = \DB::table('modelos')->random()->first();
+        $make_model = Modelo::all()->random()->first();
+        $modelo = $make_model->title;
+        $manu = $make_model->make_id;
+
+        // foreach($make_model as $m){
+        //     $mak= $m->make_id;
+        //     $mod= $m->title;
         // }
         dd(get_defined_vars());
-       
-        return view('admin.teste');
     }
+
 
     public function search(Request $request){
         // Get the search value from the request

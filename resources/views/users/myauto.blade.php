@@ -1,9 +1,12 @@
 @extends('layouts.mainapp')
 
 @section('content')
+
+
+
 <div class="main-content">
+
     <p class="my-titles-2">List of all Cars</p>
-  
      {{-- <p class="pre-nex">   {{ $cars->links(); }}</p> --}}
     
      <table class="table table-striped">

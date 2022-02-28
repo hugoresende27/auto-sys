@@ -9,6 +9,8 @@ class Modelo extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     /**
      * Get the make associated with the Modelo
      * 1 MODEL HAS 1 MAKE

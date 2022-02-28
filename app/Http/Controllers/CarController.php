@@ -81,12 +81,13 @@ class CarController extends Controller
         $new_car->year = $request->input('year');
         $new_car->last_revision = $request->input('last_rev');
         $new_car->next_revision = $request->input('last_rev')+10000;
+        $new_car->details = $request->input('details');
         $new_car->driver  = Auth::user()->name;
 
         $new_car->user_id = Auth::user()->id;
         $new_car->save();
         // dd(get_defined_vars());
-        return redirect ('/welcome')->with('message','Car added');
+        return redirect ('/welcome')->with('message','Auto added');
     }
 
     /**
@@ -109,9 +110,15 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Car $car)
     {
-        //
+        
+        $makes['data'] = Manu::orderby("make","asc")
+         ->select('make')
+         ->get();
+
+        //  dd(get_defined_vars());
+        return view ('cars.update',compact('makes','car'));
     }
 
     /**
@@ -124,6 +131,17 @@ class CarController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $save = Car::where('id',$id)->update([
+            'plate' => $request->input('plate'),
+            'color' => $request->input('color'),
+            'kms' => $request->input('kms'),
+            'year' => $request->input('year'),
+            'last_revision' => $request->input('last_rev'),
+            'next_revision' => $request->input('last_rev')+10000,
+            'details' => $request->input('details')
+        ]);
+        return redirect ('/myautos')->with('message','Record Updated');
     }
 
     /**
@@ -135,5 +153,10 @@ class CarController extends Controller
     public function destroy($id)
     {
         //
+        $car = Car::where('id', $id);
+      
+        $car->delete();
+       
+        return redirect('/myautos')->with ('message', 'Record Deleted');
     }
 }
