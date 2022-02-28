@@ -71,6 +71,17 @@ class CarController extends Controller
     {
         //
 
+        
+        $this->validate($request, [
+           
+            'year'=>'required|integer',
+         
+        ],
+        [
+            'year.required' => 'Year required',
+         
+        ]);
+
         $new_car = new Car;
 
         $new_car->make = $request->input('sel_mak');
@@ -78,6 +89,7 @@ class CarController extends Controller
         $new_car->plate = $request->input('plate');
         $new_car->color = $request->input('color');
         $new_car->kms = $request->input('kms');
+        $new_car->value = $request->input('value');
         $new_car->year = $request->input('year');
         $new_car->last_revision = $request->input('last_rev');
         $new_car->next_revision = $request->input('last_rev')+10000;
@@ -137,6 +149,7 @@ class CarController extends Controller
             'color' => $request->input('color'),
             'kms' => $request->input('kms'),
             'year' => $request->input('year'),
+            'value' => $request->input('value'),
             'last_revision' => $request->input('last_rev'),
             'next_revision' => $request->input('last_rev')+10000,
             'details' => $request->input('details')
