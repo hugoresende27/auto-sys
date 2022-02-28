@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Database\Seeders\ManuSeeder;
-use Database\Seeders\ModelosSeeder;
+// use Database\Seeders\ManuSeeder;
+// use Database\Seeders\ModelosSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
@@ -34,8 +34,10 @@ class DatabaseSeeder extends Seeder
 
         // $this->call(MakeSeeder::class);
        
-        $this->call([ManuSeeder::class]);
-        $this->call([ModelosSeeder::class]);
+        $this->call([
+                        ManuSeeder::class,
+                        ModelosSeeder::class
+                    ]);
         // \App\Models\Car::factory(100)->create();
 
     }
