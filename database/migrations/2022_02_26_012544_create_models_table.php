@@ -13,17 +13,25 @@ return new class extends Migration
      */
     public function up()
     {
+        // Schema::create('modelos', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('make_id');
+        //     $table->foreign('make_id')->references('code')->on('makes');
+        //     $table->string('code');
+        //     $table->string('title');
+        //     $table->timestamps();
+        // });
+
         Schema::create('modelos', function (Blueprint $table) {
-            $table->id();
-            $table->string('make_id');
-            $table->foreign('make_id')->references('code')->on('makes');
-            $table->string('code');
+            $table->increments('id');
+            $table->string('make_id')->nullable();
+            $table->foreign('make_id')->references('make')->on('manus')->onDelete('set null');
             $table->string('title');
             $table->timestamps();
         });
 
         Schema::table('cars', function (Blueprint $table) {
-            $table->foreign('make')->references('code')->on('makes');
+            $table->foreign('make')->references('make')->on('manus')->onDelete('set null');
             // $table->foreign('model')->references('code')->on('modelos');
         });
     }

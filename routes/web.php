@@ -7,6 +7,7 @@ use App\Http\Middleware\CheckRole;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\MakeController;
+use App\Http\Controllers\ManuController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 
@@ -31,9 +32,12 @@ Route::get('/welcome', function () {
 
 require __DIR__.'/auth.php';
 
-
+Route::get('/search/', [AdminController::class ,'search'])->name('search');
 
 Route::get('addcar', [CarController::class, 'create']);
+
+Route::get('showcar/{car}/show', [CarController::class, 'show']);
+
 Route::post('addcar/create', [CarController::class, 'store'])->name('save_car');
 Route::get('/addcar/getModelos/{code}', [CarController::class, 'getModelos']);
 
@@ -48,7 +52,8 @@ Route::middleware([CheckRole::class,'checkrole'])->group(function()
             Route::get('allcars', [AdminController::class, 'allcars']);
 
             Route::get('allmakes', [AdminController::class, 'allmakes']);
-            Route::get('makes/{make}/show', [MakeController::class, 'show']);
+            // Route::get('makes/{make}/show', [MakeController::class, 'show']);
+            Route::get('makes/{manu}/show', [ManuController::class, 'show']);
                     
         });
 

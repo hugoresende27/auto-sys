@@ -22,7 +22,7 @@
                 
                 <tr>
                     <td>{{ $c->id }}</td>
-                    <td>{{ $c->make }}</td>
+                    <td> <a href="showcar/{{ $c->id }}/show"> {{ $c->make }} </a> </td>
                     <td>{{ $c->model }}</td>
                     {{-- <td>{{  $user->password }}</td> --}}
                 </tr>

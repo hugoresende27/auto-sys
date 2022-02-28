@@ -52,17 +52,22 @@ body {
 
 .all-makes{
     background-color: grey;
-    /* display: flex; */
+    
     max-width: 100%;
     margin-top: 30px;
     padding: 10px;
     border-radius: 5px;
     
 }
+
+
+
 .all-makes li{ 
     margin: 5px;
     text-align: left;
-      padding: 5px;
+    padding: 5px;
+    /* display: inline; */
+    text-align: center;
 }
 .all-makes li:hover{ 
     background-color: #000;
@@ -70,8 +75,29 @@ body {
     transform: scale(1.1);
   
 }
-.all-makes a{ 
+.all-makes ul a{ 
     color: #fff;
+    
+}
+
+.all-makes-index{
+    background-color: darkgrey; 
+    /* text-align: left;   */
+    max-width: 100%;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.all-makes-index ul li{
+    display: inline;
+    background-color: #000;
+    color: #fff;
+    margin: 10px 5px;
+    line-height: 2rem;
+    padding: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
 }
 
 
@@ -82,6 +108,35 @@ body {
     font-weight: 900;
     /* width: fit-content; */
     display: flex;
+}
+
+.my-label-1{
+    background-color: darkblue;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+.my-label-1 a{
+    color: #fff;
+}
+
+.search-tab table tr td a{
+    color: #fff;
+}
+.search-type{
+    background-color: darkred;
+    padding: 3px;
+    border-radius: 2px;
+    
+}
+
+.card-label{
+    background-color: #000;
+    color: #fff;
+    padding: 3px;
+    border-radius: 5px;
+    text-transform: uppercase;
 }
 
 
@@ -174,7 +229,9 @@ body {
     background-color: darkblue;
     width: fit-content;
     text-align: center;
-    margin-left: 1%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10%;
     padding: 10px;
     border-radius: 5px;
 }

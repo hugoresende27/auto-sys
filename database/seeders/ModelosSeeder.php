@@ -18,24 +18,39 @@ class ModelosSeeder extends Seeder
     {
         //
             
-        Modelo::query()->delete();
-            $json = File::get(("database/data/makes.json"));
-            $cars = json_decode($json);
+        // Modelo::query()->delete();
+        //     $json = File::get(("database/data/makes.json"));
+        //     $cars = json_decode($json);
       
-            foreach ($cars as $car) {
+        //     foreach ($cars as $car) {
             
-                foreach($car->models as $model){
+        //         foreach($car->models as $model){
     
-                    Modelo::create([
+        //             Modelo::create([
                       
-                        "make_id" => $car->value,
-                        "code" => $model->value,
-                        "title" => $model->title
-                    ]);
+        //                 "make_id" => $car->value,
+        //                 "code" => $model->value,
+        //                 "title" => $model->title
+        //             ]);
     
-                }                            
+        //         }                            
             
-            }
+        //     }
+        Modelo::query()->delete();
+      
+  
+        $json = File::get(("database/data/makes_v2.json"));
+        $makes = json_decode($json);
+  
+        foreach ($makes as $key => $value) 
+        {
+            Modelo::firstOrCreate([
+              
+                "make_id" => $value->make,
+                "title" => $value->model,
+                // "year" => $value->year
+            ]);
+        }
 
            
            

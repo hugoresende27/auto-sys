@@ -20,8 +20,9 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->string('make');
-            $table->string('model');
+            $table->string('make')->nullable();
+            $table->string('model')->nullable();
+
             $table->string('plate')->nullable();
             $table->string('color')->nullable();
             $table->integer('kms')->nullable();

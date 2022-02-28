@@ -16,6 +16,6 @@ class Modelo extends Model
      */
     public function make()//: HasOne
     {
-        return $this->hasOne(Make::class, 'code', 'make_id');
+        return $this->hasOne(Manu::class, 'make', 'make_id');
     }
 }

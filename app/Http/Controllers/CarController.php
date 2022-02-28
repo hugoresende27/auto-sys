@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use App\Models\Make;
+use App\Models\Manu;
 use App\Models\Modelo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,8 +37,10 @@ class CarController extends Controller
     {
        
      
-         $makes['data'] = Make::orderby("code","asc")
-         ->select('code','title')
+        //  $makes['data'] = Make::orderby("code","asc")
+        //  ->select('code','title')
+         $makes['data'] = Manu::orderby("make","asc")
+         ->select('make')
          ->get();
 
         // Load index view
@@ -77,6 +80,7 @@ class CarController extends Controller
         $new_car->kms = $request->input('kms');
         $new_car->year = $request->input('year');
         $new_car->last_revision = $request->input('last_rev');
+        $new_car->next_revision = $request->input('last_rev')+10000;
         $new_car->driver  = Auth::user()->name;
 
         $new_car->user_id = Auth::user()->id;
@@ -94,6 +98,9 @@ class CarController extends Controller
     public function show($id)
     {
         //
+        $car = Car::where('id',$id)->get();
+        // dd(get_defined_vars());
+        return view('cars.show', compact('car'));
     }
 
     /**

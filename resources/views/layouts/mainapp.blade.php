@@ -27,10 +27,12 @@
         @auth
 
         <div class="p-3">
+           
             
                 <button class="btn btn-mine dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ Auth::user()->name }}
                 </button>
+
               
          
             <ul class="dropdown-menu">
@@ -72,6 +74,15 @@
 
             </ul>
           </div>
+          <div class="text-left m-3">
+            <form action="{{ route('search') }}" method="GET">
+                {{ csrf_field() }}
+                <input type="text" name="search" required/>
+                <button type="submit" class="btn-procurar">Search</button>
+            </form>
+        </div>
+
+        
 
 
           <a href="{{ url()->previous() }}">
@@ -83,23 +94,28 @@
         
     @endif
 
-
-
    
 
    
 
-    <a href="/"><img src="{{ asset('images/logo.jpg') }}" alt="logo" class="logo-img"></a>
+   
 
-    @if (session()->has('message'))
-    <div id='hideMe'  >
-        <p class="message-box">
-            {{ session()->get('message') }}
-        </p>
-    </div>
-   @endif
+<a href="/"><img src="{{ asset('images/logo.jpg') }}" alt="logo" class="logo-img"></a>
+
+ 
+
+
+
 
 </div>
+
+@if (session()->has('message'))
+<div id='hideMe'  >
+    <p class="message-box">
+        {{ session()->get('message') }}
+    </p>
+</div>
+@endif
 
     
     {{-- <div class="main-content"> --}}

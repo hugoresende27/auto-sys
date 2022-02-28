@@ -13,11 +13,27 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('makes', function (Blueprint $table) {
+        // Schema::create('makes', function (Blueprint $table) {
+         
+        //     $table->id();
+        //     $table->string('code')->unique();
+        //     $table->string('title');
+        //     $table->timestamps();
+        // });
+
+        // Schema::create('manus', function (Blueprint $table) {
+         
+        //     $table->id();
+        //     $table->string('make');
+        //     $table->string('model');
+        //     $table->year('year');
+        //     $table->timestamps();
+        // });
+        Schema::create('manus', function (Blueprint $table) {
          
             $table->id();
-            $table->string('code')->unique();
-            $table->string('title');
+            $table->string('make')->unique();
+         
             $table->timestamps();
         });
       

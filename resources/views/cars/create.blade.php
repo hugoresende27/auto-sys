@@ -19,7 +19,7 @@
 
   <!-- Read Departments -->
   @foreach($makes['data'] as $make)
-    <option value='{{ $make->code }}' >{{ $make->title }}</option>
+    <option value='{{ $make->make }}' >{{ $make->make }}</option>
   @endforeach
 
 </select>
@@ -80,7 +80,7 @@ $(document).ready(function(){
 <br>
 
 {{-- {{ Form::label('Plate','Plate',['class'=>'']) }} --}}
-{{ Form::text('plate','', ['class'=>'form-control text-center m-3','placeholder'=>'Plate','title'=>'##-##-##', 'pattern'=>"(^[a-zA-Z0-9]{2}-[a-zA-Z0-9]{2}-[a-zA-Z0-9]{2})",'required'=>'required']) }}
+{{ Form::text('plate','', ['class'=>'form-control text-center m-3','placeholder'=>'Plate','title'=>'######', 'pattern'=>"(^[a-zA-Z0-9]{6})",'required'=>'required', "onkeyup"=>"this.value = this.value.toUpperCase();"]) }}
 
 <div>
   <label for="color">Color</label>
