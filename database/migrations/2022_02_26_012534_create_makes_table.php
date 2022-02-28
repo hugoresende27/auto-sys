@@ -46,6 +46,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('makes');
+        Schema::dropIfExists('manus');
     }
 };
