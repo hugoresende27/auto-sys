@@ -3,7 +3,7 @@
 @section('content')
 <div class="main-content">
 
-    <p class="my-titles-2">List of all Models </p>
+    {{-- <p class="my-titles-2">List of all Models </p> --}}
     
     <p class="my-label-1"><a href="/allmakes">  {{ $manu->make }} </a></p>
 

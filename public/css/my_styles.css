@@ -19,7 +19,7 @@ body {
     
     margin-left: 50%;
     transform: translateX(-50%);
-    min-height: 79vh;
+    min-height: 75.8vh;
     text-align: center;
     align-content: center;
     display: flex;          /*coloca tudo em linha*/
@@ -153,8 +153,9 @@ body {
 }
 
 
-.my-show{
-    background-color: gray;
+.img-show{
+    max-width: 400px;
+    
 }
 
 /*/////////////////// TOP BARS AND TITLES ////////////////////////////////////////////////////*/
@@ -273,6 +274,10 @@ body {
     margin-top: 10%;
     padding: 10px;
     border-radius: 5px;
+}
+/*///////////////OVER WRITTEN CLASSES BOOTSRAPT ////////////////////////////////////////////////////////////////////*/
+.card-header-title {
+    display: inline;
 }
 
 

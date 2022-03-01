@@ -2,9 +2,21 @@
 
 @section('content')
 <div class="main-content">
+    {{-- DEBUG DE ERROS NO FORM-------------------- --}}
+    @if ($errors->any())
+    <div class="message-box">
+        <ul>
+            @foreach ($errors->all() as $erro)
+                <li class="">
+                    {{ $erro }}                   
+                </li>                 
+            @endforeach
+        </ul>
+    </div>       
+  @endif
   {{-- <h1 class="my-titles-2">Add a car</h1> --}}
 
-  {!! Form::open(['route' => 'save_car', 'method'=> 'POST']) !!}
+  {!! Form::open(['route' => 'save_car', 'method'=> 'POST','files'=>true]) !!}
 
   <div class="form-group">
     
@@ -75,9 +87,24 @@ $(document).ready(function(){
      });
   });
 });
-</script>
 
+function preview() {
+    frame.src=URL.createObjectURL(event.target.files[0]);
+}
+
+
+</script>
 <br>
+{{ Form::label('photo','Photo') }}
+<br>
+{{-- {!! Form::file('image') !!} --}}
+<div class="m-3">
+  <input type="file" name="image" class="form-control" onchange="preview()">
+  <img id="frame" src="" width="100px" height="100px" class="m-3"/>
+</div>
+
+
+
 
 {{-- {{ Form::label('Plate','Plate',['class'=>'']) }} --}}
 {{ Form::text('plate','', ['class'=>'form-control text-center m-3','placeholder'=>'Plate','title'=>'######', 'pattern'=>"(^[a-zA-Z0-9]{6})",'required'=>'required', "onkeyup"=>"this.value = this.value.toUpperCase();"]) }}

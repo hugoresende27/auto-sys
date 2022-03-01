@@ -75,10 +75,12 @@ class CarController extends Controller
         $this->validate($request, [
            
             'year'=>'required|integer',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
          
         ],
         [
             'year.required' => 'Year required',
+            // 'image'=>'Invalid image'
          
         ]);
 
@@ -97,10 +99,21 @@ class CarController extends Controller
         $new_car->driver  = Auth::user()->name;
 
         $new_car->user_id = Auth::user()->id;
+
+        $imageName = time().'.'.$request->image->extension();  
+     
+        $request->image->move(public_path('images'), $imageName);
+
+        $new_car->images_nr = $imageName;
         $new_car->save();
+
+      
+
         // dd(get_defined_vars());
         return redirect ('/welcome')->with('message','Auto added');
     }
+
+ 
 
     /**
      * Display the specified resource.

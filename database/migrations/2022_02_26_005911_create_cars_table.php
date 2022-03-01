@@ -34,6 +34,8 @@ return new class extends Migration
             $table->string('driver')->nullable();
             $table->string('details')->nullable();
 
+            $table->string('images_nr')->nullable();
+
             $table->timestamps();
             
         });
