@@ -35,6 +35,7 @@ class AdminController extends Controller
         
         $makes = Manu::orderBy('make')->paginate(10);
         // $makes = Manu::orderBy('make')->paginate(10);
+        // dd(get_defined_vars());
         return view('admin.allmakes', compact('makes'));
     }
 
@@ -48,7 +49,7 @@ class AdminController extends Controller
 
     public function all()
     {
-        $all = Base_db::orderBy('make')->paginate(10);
+        $all = Modelo::orderBy('make_id')->paginate(10);
         return view('admin.all', compact('all'));
     }
 
@@ -79,36 +80,36 @@ class AdminController extends Controller
         $search = $request->input('search');
     
         // Search in the title and body columns from the posts table
-        // $results1 = Manu::query()
-        //     ->where('make', 'LIKE', "%{$search}%")
-        //     // ->orWhere('body', 'LIKE', "%{$search}%")
-        //     ->get();
+        $results1 = Manu::query()
+            ->where('make', 'LIKE', "%{$search}%")
+            // ->orWhere('body', 'LIKE', "%{$search}%")
+            ->get();
            
-        // $results2 = Modelo::query()
-        //     ->where('title', 'LIKE', "%{$search}%")        
-        //     ->get('title');
+        $results2 = Modelo::query()
+            ->where('title', 'LIKE', "%{$search}%")        
+            ->get('title');
            
         // $results3 = User::query()
         //     ->where('name', 'LIKE', "%{$search}%")        
         //     ->get('name');
            
-        // $results4 = Car::query()
-        //     ->where('plate', 'LIKE', "%{$search}%")        
-        //     ->get('plate');
+        $results4 = Car::query()
+            ->where('plate', 'LIKE', "%{$search}%")        
+            ->get('plate');
 
-        $results5 = Base_db::query()
-            ->where('make', 'LIKE', "%{$search}%")        
-            ->orWhere('model', 'LIKE', "%{$search}%")
-            ->orWhere('year', 'LIKE', "%{$search}%")
-            ->paginate(10)->withQueryString();
+        // $results5 = Base_db::query()
+        //     ->where('make', 'LIKE', "%{$search}%")        
+        //     ->orWhere('model', 'LIKE', "%{$search}%")
+        //     ->orWhere('year', 'LIKE', "%{$search}%")
+        //     ->paginate(10)->withQueryString();
            
 
-        // $collection = collect([$results5,$results3,$results4]);
-        $count = $results5->total();
-        // foreach ($collection as $item) {
+        $collection = collect([$results1,$results2,$results4]);
+        $count = 0;
+        foreach ($collection as $item) {
         // foreach ($results5 as $item) {
-        //     $count += count($item);
-        // }
+            $count += count($item);
+        }
 
       
 
@@ -116,6 +117,6 @@ class AdminController extends Controller
        
     //    dd(get_defined_vars());
         // Return the search view with the resluts compacted
-        return view('admin.search', compact('results5','count'));
+        return view('admin.search', compact('collection','count'));
     }
 }

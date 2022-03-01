@@ -11,7 +11,7 @@
         <thead>
             <tr>
             <th><abbr title="Id">ID</abbr></th>
-            <th><abbr title="Id">Year</abbr></th>
+            {{-- <th><abbr title="Id">Year</abbr></th> --}}
             <th><abbr title="Make">Make</abbr></th>
             <th><abbr title="Model">Model</abbr></th>
        
@@ -24,7 +24,7 @@
                 
                 <tr>
                     <td>{{ $c->id }}</td>
-                    <td>{{ $c->year }}</td>
+                    {{-- <td>{{ $c->year }}</td> --}}
                     <td> <a href="showcar/{{ $c->id }}/show">{{ $c->make }}</a></td>
                     <td>{{ $c->model }}</td>
                  

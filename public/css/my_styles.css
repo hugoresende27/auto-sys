@@ -331,6 +331,12 @@ body {
         margin-top: 10px;
     }
  
+.my-titles{
+    visibility: hidden;
+}
+.my-titles-2{
+   visibility: hidden;
+}
    
 
 }
@@ -391,6 +397,12 @@ body {
     }
     .pre-nex2 {
         margin-top: 10px;
+    }
+    .my-titles{
+        visibility: hidden;
+    }
+    .my-titles-2{
+       visibility: hidden;
     }
  
 

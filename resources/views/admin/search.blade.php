@@ -4,7 +4,7 @@
 <div class="main-content">
 
     
-  <p class="pre-nex2 " >   {{ $results5->links(); }}</p><br>
+  {{-- <p class="pre-nex2 " >   {{ $results5->links(); }}</p><br> --}}
 
     
 <div class="table-responsive search-tab">
@@ -15,7 +15,7 @@
         <thead>
           <tr>
        
-            <th scope="col" class="text-white display-6">Results of search {{ $results5->total() }}</th>
+            <th scope="col" class="text-white display-6">Results of search {{ $count }}</th>
             
             
        
@@ -23,12 +23,12 @@
         </thead>
         <tbody>
         
-            {{-- @if($collection->isNotEmpty())
+            @if($collection->isNotEmpty())
                 @foreach ($collection as $res)
-                    @foreach ($res as  $r) --}}
+                    @foreach ($res as  $r)
 
-                  @if ($results5->isNotEmpty())
-                    @foreach ($results5 as $r)
+                  {{-- @if ($collection->isNotEmpty())
+                    @foreach ($collection as $r) --}}
 
            
              
@@ -52,9 +52,11 @@
                          
                         </td>
                
+                    </tr>
+      
                 @endforeach
                     
-                {{-- @endforeach --}}
+                @endforeach
             @else 
             <div>
                 <h2 class="" >No results</h2>

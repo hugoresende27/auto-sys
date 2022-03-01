@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
                         ManuSeeder::class,
                         ModelosSeeder::class,
-                        Base_bdSeeder::class
+                        // Base_bdSeeder::class
                     ]);
 
 

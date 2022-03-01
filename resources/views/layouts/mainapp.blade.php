@@ -47,11 +47,11 @@
                         <a href="/../allusers">All Users</a>
 
                     </li>
-                    <li >
+                    {{-- <li >
 
                         <a href="/../all">All </a>
 
-                    </li>
+                    </li> --}}
 
                     <li >
 

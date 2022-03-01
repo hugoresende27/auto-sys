@@ -61,7 +61,7 @@ Route::middleware([CheckRole::class,'checkrole'])->group(function()
 
             Route::get('allcars', [AdminController::class, 'allcars']);
 
-            Route::get('allmakes', [AdminController::class, 'allmakes']);
+            // Route::get('allmakes', [AdminController::class, 'allmakes']);
           
             Route::get('makes/{manu}/show', [ManuController::class, 'show']);
 
@@ -70,5 +70,5 @@ Route::middleware([CheckRole::class,'checkrole'])->group(function()
         });
         
 
-Route::get('all', [AdminController::class, 'all']);
+Route::get('allmakes', [AdminController::class, 'allmakes']);
 
