@@ -16,6 +16,9 @@
 
     <link rel="stylesheet" href="{{ asset('css/my_styles.css') }}">
 
+    <link rel="shortcut icon" href="{{ asset('images/logo.jpg') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.jpg') }}">
+
     <title>Auto Sys</title>
 </head>
 <body >
