@@ -44,6 +44,11 @@
                         <a href="/../allusers">All Users</a>
 
                     </li>
+                    <li >
+
+                        <a href="/../all">All </a>
+
+                    </li>
 
                     <li >
 
@@ -56,6 +61,7 @@
                         <a href="/../allcars">All Cars</a>
 
                     </li>
+                   
                 @endif
 
                 <li>

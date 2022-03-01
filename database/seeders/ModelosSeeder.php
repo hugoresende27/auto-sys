@@ -48,7 +48,7 @@ class ModelosSeeder extends Seeder
               
                 "make_id" => $value->make,
                 "title" => $value->model,
-                // "year" => $value->year
+           
             ]);
         }
 

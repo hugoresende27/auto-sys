@@ -4,16 +4,18 @@
 <div class="main-content">
 
     
-  
+  <p class="pre-nex2 " >   {{ $results5->links(); }}</p><br>
 
     
 <div class="table-responsive search-tab">
+
+ 
     
     <table class="  table table-striped table-dark">
         <thead>
           <tr>
        
-            <th scope="col" class="text-white display-4">Results of search {{ $count }}</th>
+            <th scope="col" class="text-white display-6">Results of search {{ $results5->total() }}</th>
             
             
        
@@ -21,52 +23,45 @@
         </thead>
         <tbody>
         
-            @if($collection->isNotEmpty())
+            {{-- @if($collection->isNotEmpty())
                 @foreach ($collection as $res)
-                    @foreach ($res as  $r)
+                    @foreach ($res as  $r) --}}
+
+                  @if ($results5->isNotEmpty())
+                    @foreach ($results5 as $r)
+
+           
              
                     <tr>
                         <td> 
                           @if (isset( $r->make))
                                
-                                <span class="search-type"> <a href="allmakes"> Make </span> </a> <a href="makes/{{ $r->id }}/show">  {{ $r->make }}  </a>
+                                <span class="search-type"> <a href=""> Make </span> </a> <a href="">  {{ $r->make }} {{ $r->model }} {{ $r->year }}  </a>
                              
                           @else 
-                              @if (isset( $r->title))
+                              @if (isset( $r->model))
                                
-                                  <span class="search-type"> <a href=""> Model </a></span>  <a href="">  {{ $r->title }}
+                                  <span class="search-type"> <a href=""> Model </a></span>  <a href="">  {{ $r->model }} {{ $r->year }}
                                 </a>
-                              @else
-                                @if (isset( $r->name))
-                                
-                                    <span class="search-type"> <a href=""> User </a></span>   <a href="">  {{ $r->name }}
-                                  </a>
-                                @else
-
-                                  @if (isset($r->plate))
-                                    <span class="search-type"> <a href=""> Plate </a> </span>      <a href="">  {{ $r->plate }}
-                                    </a>
-                                  @endif
-                                  
-                                
-                                @endif
+                                                           
                               @endif
+                              {{-- @endif --}}
                           @endif
     
-                          {{-- {{  dd(get_defined_vars()); }} --}}
+                       
                          
                         </td>
                
                 @endforeach
                     
-                @endforeach
+                {{-- @endforeach --}}
             @else 
             <div>
                 <h2 class="" >No results</h2>
             </div>
             @endif
             
-               
+            {{-- {{  dd(get_defined_vars()); }} --}}
                    
                   
              

@@ -15,6 +15,7 @@
                 <th><abbr title="Id">ID</abbr></th>
                 <th><abbr title="Make">Make</abbr></th>
                 <th><abbr title="Model">Model</abbr></th>
+                <th><abbr title="Model">Year</abbr></th>
             {{-- <th><abbr title="Password">Password</abbr></th> --}}
         
             </tr>
@@ -27,7 +28,7 @@
                     <td>{{ $c->id }}</td>
                     <td> <a href="showcar/{{ $c->id }}/show"> {{ $c->make }} </a> </td>
                     <td>{{ $c->model }}</td>
-                    {{-- <td>{{  $user->password }}</td> --}}
+                    <td>{{  $c->year }}</td>
                 </tr>
 
             @endforeach

@@ -32,8 +32,9 @@ Route::get('/welcome', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/search/', [AdminController::class ,'search'])->name('search');
-Route::get('/teste/', [AdminController::class ,'teste'])->name('teste');
+Route::get('/search/{page?}', [AdminController::class ,'search'])->name('search');
+
+
 
 Route::get('addcar', [CarController::class, 'create']);
 
@@ -56,13 +57,18 @@ Route::middleware([CheckRole::class,'checkrole'])->group(function()
 
             Route::get('allusers', [AdminController::class, 'allusers']);
 
+            Route::get('all', [AdminController::class, 'all']);
+
             Route::get('allcars', [AdminController::class, 'allcars']);
 
             Route::get('allmakes', [AdminController::class, 'allmakes']);
-            // Route::get('makes/{make}/show', [MakeController::class, 'show']);
+          
             Route::get('makes/{manu}/show', [ManuController::class, 'show']);
+
+            Route::get('/teste/', [AdminController::class ,'teste'])->name('teste');
                     
         });
+        
 
-
+Route::get('all', [AdminController::class, 'all']);
 

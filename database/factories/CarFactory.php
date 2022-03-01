@@ -33,7 +33,7 @@ class CarFactory extends Factory
             // 'model'=> $this->faker->randomElement(Modelo::all())['title'],
                      
              'plate'=> rand(0,99).strtoupper($this->faker-> lexify('??')).rand(0,99),
-             'color'=> '#ffffff',
+             'color'=> $this->faker->hexcolor(),
             'kms'=>rand(10000,25999),
             'year'=>rand(1980,2020),
             'value'=>rand(1000,49999),

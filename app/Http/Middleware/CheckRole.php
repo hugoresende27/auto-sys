@@ -21,6 +21,6 @@ class CheckRole
         if (Auth::user()->role == 3) {
             return $next($request);
         }
-        return response()->json('No permissions dude...');
+        return response()->json('No permissions ...');
     }
 }

@@ -12,6 +12,7 @@
                     <ul>
                         <a href="addcar"><li class="welcome-li">Add Auto</li></a>
                         <a href="myautos"> <li class="welcome-li">My Autos</li></a>
+                        <a href="all"> <li class="welcome-li">All Autos</li></a>
                     </ul>
                 </div>
 

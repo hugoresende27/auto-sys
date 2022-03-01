@@ -4,15 +4,19 @@
 <div class="main-content">
 
 @foreach ($car as $c)
-        <div class="card">
+        <div class="card m-3 my-show">
         <header class="card-header">
-            <p class="card-header-title">
-                
-                {{ $c->make }} {{ $c->model }}
-                
-            
-            </p>
-           
+  
+        <div class="card" style="background:{{ $c->color }} ">
+            {{-- <img src="https://cdn.pixabay.com/photo/2016/11/22/23/44/porsche-1851246_960_720.jpg" alt="Avatar"  --}}
+            <img src="https://cdn.pixabay.com/photo/2016/11/22/23/44/porsche-1851246_960_720.jpg" alt="Avatar" 
+                    style="width:100%;
+                         ">
+            <div class=" card-header-title">
+              <h4><b>{{ $c->make }} </b></h4>
+              <p>{{ $c->model }}</p>
+            </div>
+        </div>
         </header>
         <div class="card-content text-left">
             <div class="content">

@@ -28,8 +28,7 @@ class ManuSeeder extends Seeder
             Manu::firstOrCreate([
               
                 "make" => $value->make,
-                // "model" => $value->model,
-                // "year" => $value->year
+            
             ]);
         }
     }
