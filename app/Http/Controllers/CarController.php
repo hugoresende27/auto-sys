@@ -156,6 +156,27 @@ class CarController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request, [
+           
+            'year'=>'required|integer',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+         
+        ],
+        [
+            'year.required' => 'Year required',
+            // 'image'=>'Invalid image'
+         
+        ]);
+
+        if (isset($request->image)){
+            $imageName = time().'.'.$request->image->extension();  
+     
+            $request->image->move(public_path('images'), $imageName);
+        } else {
+            $imageName = Car::where('id',$id)->first();
+            $imageName = $imageName->images_nr;
+        }
+       
 
         $save = Car::where('id',$id)->update([
             'plate' => $request->input('plate'),
@@ -165,9 +186,14 @@ class CarController extends Controller
             'value' => $request->input('value'),
             'last_revision' => $request->input('last_rev'),
             'next_revision' => $request->input('last_rev')+10000,
-            'details' => $request->input('details')
+            'details' => $request->input('details'),
+            'images_nr'=>  $imageName,
+            
         ]);
-        return redirect ('/myautos')->with('message','Record Updated');
+        
+
+       
+        return redirect ('/showcar/'.$id.'/show/')->with('message','Record Updated');
     }
 
     /**
