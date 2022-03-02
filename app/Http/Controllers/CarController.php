@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Car;
 use App\Models\Make;
 use App\Models\Manu;
+use App\Models\User;
 use App\Models\Modelo;
 use Illuminate\Http\Request;
+use JD\Cloudder\Facades\Cloudder;
 use Illuminate\Support\Facades\Auth;
 
 class CarController extends Controller
