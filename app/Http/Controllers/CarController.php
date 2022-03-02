@@ -169,13 +169,22 @@ class CarController extends Controller
         ]);
 
         if (isset($request->image)){
-            $imageName = time().'.'.$request->image->extension();  
-     
-            $request->image->move(public_path('images'), $imageName);
-        } else {
-            $imageName = Car::where('id',$id)->first();
-            $imageName = $imageName->images_nr;
-        }
+            Cloudder::upload($request->file('image'), null, array(
+                "folder" => "auto-sys",  "overwrite" => FALSE,
+                "resource_type" => "image", "responsive" => TRUE, "transformation" => array("quality" => "70", "width" => "400", "height" => "400", "crop" => "scale")
+            ));
+                $public_id = Cloudder::getPublicId();
+
+                $width = 250;
+                $height = 250;
+
+                $image_url = Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height" => $height, "crop" => "scale", "quality" => 70, "secure" => "true"]);
+            } 
+            else 
+            {
+                $image_url = User::where('id',$auth_id)->first();
+                $image_url = $image_url->image_nr;
+            }
        
 
         $save = Car::where('id',$id)->update([
@@ -187,7 +196,7 @@ class CarController extends Controller
             'last_revision' => $request->input('last_rev'),
             'next_revision' => $request->input('last_rev')+10000,
             'details' => $request->input('details'),
-            'images_nr'=>  $imageName,
+            'images_nr'=>   $image_url,
             
         ]);
         
