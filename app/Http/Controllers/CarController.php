@@ -169,7 +169,10 @@ class CarController extends Controller
             // 'image'=>'Invalid image'
          
         ]);
+        $auth_id = Auth::user()->id;
 
+       
+       
         if (isset($request->image)){
             Cloudder::upload($request->file('image'), null, array(
                 "folder" => "auto-sys",  "overwrite" => FALSE,
@@ -185,7 +188,8 @@ class CarController extends Controller
             else 
             {
                 $image_url = User::where('id',$auth_id)->first();
-                $image_url = $image_url->image_nr;
+                // dd(get_defined_vars());
+                $image_url = $image_url->images_nr;
             }
        
 

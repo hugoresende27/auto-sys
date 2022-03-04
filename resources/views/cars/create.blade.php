@@ -100,7 +100,7 @@ function preview() {
 {{-- {!! Form::file('image') !!} --}}
 <div class="m-3">
   {{-- <input type="file" accept="image/*" capture="camera" name="image" class="form-control" onchange="preview()"> --}}
-  <input type="file" name="image" class="form-control" onchange="preview()" capture="camera">
+  <input type="file" name="image" class="form-control" onchange="preview()">
   <img id="frame" src="" width="100px" height="100px" class="m-3"/>
 </div>
 
