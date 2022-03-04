@@ -27,7 +27,7 @@
                 <tr>
                     <td>
 
-                        <img class ="img-logo-list" src="{{ asset('/images/'. $c->images_nr) }}" alt="Avatar" 
+                        <img class ="img-logo-list" src="{{  $c->images_nr }}" alt="Avatar" 
                         
                              >
 
