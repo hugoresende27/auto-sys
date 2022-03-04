@@ -161,7 +161,7 @@ class CarController extends Controller
         $this->validate($request, [
            
             'year'=>'required|integer',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
          
         ],
         [
