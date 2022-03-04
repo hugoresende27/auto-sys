@@ -187,7 +187,7 @@ class CarController extends Controller
             } 
             else 
             {
-                $image_url = User::where('id',$auth_id)->first();
+                $image_url = Car::where('id',$id)->first();
                 // dd(get_defined_vars());
                 $image_url = $image_url->images_nr;
             }
